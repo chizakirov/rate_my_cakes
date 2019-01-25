@@ -1,0 +1,27 @@
+<div>
+
+  <div *ngIf = "createRatingErrors">
+    <p *ngIf = "createRatingErrors.errors.rating" style = "color: red;">{{ createRatingErrors.errors.rating.message }}</p>
+    <p *ngIf = "createRatingErrors.errors.comment" style = "color: red;">{{ createRatingErrors.errors.comment.message }}</p>
+  </div>
+  
+  <form>
+    <p>Rating: 
+      <select name  = "new_rating.rating" [(ngModel)] = "new_rating.rating">
+        <option value="1">1 stars</option>
+        <option value="2">2 stars</option>
+        <option value="3">3 stars</option>
+        <option value="4">4 stars</option>
+        <option value="5">5 stars</option>
+      </select> 
+    </p>
+    <p>Comment: <input 
+      required
+      minlength="3"
+      type = "text" name="new_rating.comment" 
+      [(ngModel)] = "new_rating.comment"
+      #new_rating.comment = "ngModel">
+    </p>
+    <p><button class="btn btn-success" (click) = "createRating()">Rate!</button></p>
+  </form>
+</div>

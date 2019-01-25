@@ -1,0 +1,8 @@
+<h1>Baked by {{ cakeDetail.name }}</h1>
+
+<div *ngFor = "let i of cakeDetail.comments">
+  <p>{{ i.rating }}</p>
+  <p>{{ i.comment}}</p> 
+</div>
+
+<p><img style = "width: 400px;" src="{{ cakeDetail.url }}" alt="some cake photo"></p>
